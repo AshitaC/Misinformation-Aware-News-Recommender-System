@@ -1,7 +1,12 @@
 # Misinformation-Aware-News-Recommender-System
-Implementation and validation of Fake News Aware Recommendation System
 
-A comprehensive implementation of the Fake News Aware Recommender (FANAR) system that mitigates misinformation spread while maintaining high-quality news recommendations through hybrid user modeling and attention mechanisms.
+This project began as an independent implementation of the framework proposed in [Fake News Aware News Recommendation](https://dl.acm.org/doi/10.1145/3563359.3597395). Because the original authors' code and datasets were not publicly available, we implemented the architecture from the ground up to validate its claims and provide an open-source baseline for the research community.
+
+Our implementation evaluates the design on publicly available benchmark datasets (PolitiFact/FakeHealth), compares performance against 7 classical baselines, and includes extensive ablation studies to verify the impact of semantic news-space and social neighbor-space modeling.
+
+Publication Status
+
+Our work on the replicability and adaptation of this framework, titled **"Replicability of FANAR: Adapting a Trust-based News Recommender for Fake News Mitigation to Public Benchmarks,"** is currently under review for **SIGIR 2026** (ACM Conference on Information Retrieval).
 
 ## Overview
 FANAR addresses the critical challenge of misinformation in news recommendation systems by implementing a hybrid user modeling approach that combines:
@@ -23,7 +28,7 @@ Ablation studies to evaluate impact of individual components
 
 ## Features
 
--  Semantic News Understanding: BERT-based news embeddings for rich content representation
+- Semantic News Understanding: BERT-based news embeddings for rich content representation
 - Social Network Integration: Neighbor-based filtering with reliability scoring
 - Attention Mechanisms: Learnable attention weights for optimal user preference aggregation
 - Comprehensive Evaluation: Multiple metrics including MRR, Hit Rate, nDCG, and Fake News Ratio
