@@ -31,7 +31,8 @@ Ablation studies to evaluate impact of individual components
 - Baseline Comparisons: Evaluation against 7 traditional recommendation algorithms
 
 ## Architecture
-<img width="737" height="451" alt="image" src="https://github.com/user-attachments/assets/7d1541c8-6f98-4ea8-b4d5-8b4ffea19d8c" />
+
+![FANAR Architecture](assets/architecture.png)
 
 
 # Datasets
@@ -54,9 +55,7 @@ Social Connections: 4,102 following relationships
 
 PolitiFact Dataset Performance
 
-
-<img width="571" height="227" alt="image" src="https://github.com/user-attachments/assets/d1039c37-de53-4aed-a503-9012c584fc9c" />
-
+![Model Performance](assets/Performance.png)
 
 Key Improvements
 
@@ -68,7 +67,7 @@ Consistent performance across multiple evaluation metrics
 
 Ablation Study Results
 
-<img width="536" height="164" alt="image" src="https://github.com/user-attachments/assets/0fe0131c-5179-44e0-891e-b4fe257595c3" />
+![Ablation Results](assets/ablation.png)
 
 
 # Areas for Contribution
