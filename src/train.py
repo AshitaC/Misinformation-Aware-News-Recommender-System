@@ -35,3 +35,23 @@ def train_model(model, train_data, news_embeddings, labels_dict, epochs=10, K=10
             total_loss += user_loss.item()
 
         print(f"Epoch {epoch+1} Loss: {total_loss / len(train_data):.4f}")
+
+
+
+model = EndToEndRecommendationModel(
+    embed_dim=embed_dim,
+    news_embeddings=news_embeddings,
+    user_interactions=user_interactions,
+    trusted_neighbors_dict=trusted_neighbors_dict
+)
+
+
+
+
+subset_train_data = dict(list(train_data.items())[:5])   # sample data
+     
+
+train_data = dict(list(train_data.items())[:])   # full data
+
+
+train_model(model, train_data, news_embeddings, labels_dict, epochs=20)
