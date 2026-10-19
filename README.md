@@ -4,25 +4,22 @@ This project began as an independent implementation of the framework proposed in
 
 Our implementation evaluates the design on publicly available benchmark datasets (PolitiFact/FakeHealth), compares performance against 7 classical baselines, and includes extensive ablation studies to verify the impact of semantic news-space and social neighbor-space modeling.
 
-This work on the replicability and adaptation of this framework, titled **"Replicability of FANAR: Adapting a Trust-based News Recommender for Fake News Mitigation to Public Benchmarks,"** is currently under review for **RecSys 2026** (ACM Conference on Information Retrieval).
+This reproducibility study, **"Reproducibility of FANAR: Adapting a Trust-based News Recommender for Fake News Mitigation to Public Benchmarks"** (A. Chandnani, M. S. Ahmed, F. Spezzano), is currently under revision for resubmission.
 
 ## Overview
 FANAR addresses the critical challenge of misinformation in news recommendation systems by implementing a hybrid user modeling approach that combines:
 
-News-space modeling: User preferences based on direct news interactions
-Neighbor-space modeling: Social network analysis with reliability filtering
-Attention mechanisms: Intelligent aggregation of user preferences
-BERT embeddings: Semantic understanding of news content
+- **News-space modeling:** user preferences based on direct news interactions
+- **Neighbor-space modeling:** aggregation over social neighbors, keeping only trustworthy users (Beta trust model, threshold 0.5)
+- **Attention mechanisms:** learned weighting of articles and neighbors when building the user representation
+- **BERT embeddings:** frozen `bert-base-uncased` [CLS] embeddings (768-d) for news content
 
 ## Key Achievements
 
-48% improvement in ranking quality (MRR) over traditional collaborative filtering
-
-45% reduction in fake news recommendations
-
-Successfully validated on benchmark datasets (PolitiFact, FakeHealth)
-
-Ablation studies to evaluate impact of individual components
+- **48% higher MRR@10** than the strongest of 7 classical baselines (User-User CF) on PolitiFact (0.112 vs. 0.075)
+- **Lower fake-news ratio than every collaborative-filtering baseline** on PolitiFact (TF@10 0.550 vs. 0.570–0.615 for User-User, Item-Item and ALS)
+- **Ablation:** filtering out untrustworthy neighbors improves MRR@10 by 18.8% (0.112 vs. 0.0936)
+- Evaluated on two public benchmarks (FakeNewsNet PolitiFact, FakeHealth) with a trustworthiness-threshold sensitivity analysis
 
 ## Features
 
@@ -42,17 +39,17 @@ Ablation studies to evaluate impact of individual components
 Supported Datasets
 1. PolitiFact (FakeNewsNet)
 
-Users: 1,028 Twitter users
-News Articles: 542 (322 fake, 220 real)
-Interactions: 20,265 user-news interactions
-Social Connections: 3,021 following relationships
+- Users: 1,028 Twitter users (38% trustworthy)
+- News Articles: 542 (322 fake, 220 real)
+- Interactions: 20,265 user-news interactions
+- Social Connections: 3,021 following relationships
 
 2. FakeHealth HealthStory
 
-Users: 5,406 Twitter users
-News Articles: 1,690 (472 fake, 1,218 real)
-Interactions: 120,124 user-news interactions
-Social Connections: 4,102 following relationships
+- Users: 5,406 Twitter users (95% trustworthy)
+- News Articles: 1,690 (472 fake, 1,218 real)
+- Interactions: 120,124 user-news interactions
+- Social Connections: 4,102 following relationships
 
 # Results
 
@@ -60,13 +57,11 @@ PolitiFact Dataset Performance
 
 ![Model Performance](assets/Performance.png)
 
-Key Improvements
+Key Findings
 
-48% improvement in MRR over strongest baseline (User-User CF)
-
-45% reduction in fake news recommendations compared to traditional methods
-
-Consistent performance across multiple evaluation metrics
+- **PolitiFact (38% trustworthy users):** FANAR has the highest MRR@10 (0.112), a 48% improvement over the strongest baseline (User-User CF), with a lower fake-news ratio (TF@10 0.550) than all collaborative-filtering baselines.
+- **FakeHealth (95% trustworthy users):** classical CF and content-based methods rank better (FANAR MRR@10 0.009, TF@10 0.400). FANAR works best when trustworthy and untrustworthy users are mixed.
+- A trustworthiness threshold of 0.5 gave the best balance between ranking quality and fake-news exposure.
 
 Ablation Study Results
 
@@ -75,12 +70,8 @@ Ablation Study Results
 
 # Areas for Contribution
 
-Model Improvements: Enhanced attention mechanisms, new aggregation strategies
-
-Evaluation Metrics: Additional fake news detection metrics
-
-Scalability: Optimization for larger datasets
-
-Applications: Integration with real-world news platforms
-
-Research: Novel approaches to misinformation detection
+- **Model Improvements:** enhanced attention mechanisms, new aggregation strategies
+- **Evaluation Metrics:** additional fake news detection metrics
+- **Scalability:** optimization for larger datasets
+- **Applications:** integration with real-world news platforms
+- **Research:** novel approaches to misinformation detection
