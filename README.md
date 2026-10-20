@@ -4,8 +4,6 @@ This project began as an independent implementation of the framework proposed in
 
 Our implementation evaluates the design on publicly available benchmark datasets (PolitiFact/FakeHealth), compares performance against 7 classical baselines, and includes extensive ablation studies to verify the impact of semantic news-space and social neighbor-space modeling.
 
-This reproducibility study, **"Reproducibility of FANAR: Adapting a Trust-based News Recommender for Fake News Mitigation to Public Benchmarks"** (A. Chandnani, M. S. Ahmed, F. Spezzano), is currently under revision for resubmission.
-
 ## Overview
 FANAR addresses the critical challenge of misinformation in news recommendation systems by implementing a hybrid user modeling approach that combines:
 
